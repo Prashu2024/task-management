@@ -21,7 +21,7 @@ async def create_user_task(
     current_user: User = Depends(get_current_user)
 ):
     task = await create_task(db=db, task_in=task_in, created_by=current_user.id)
-    return task   # ✅ let FastAPI + Pydantic handle conversion
+    return task   
 
 
 
@@ -48,7 +48,7 @@ async def get_user_task(
     task = await get_task(db, task_id=task_id)
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
-    return task   # ✅
+    return task   
 
 
 @router.put("/{task_id}", response_model=TaskResponse, dependencies=[Security(bearer_scheme)])
@@ -62,7 +62,7 @@ async def update_user_task(
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
     updated_task = await update_task(db=db, db_obj=task, obj_in=task_in)
-    return updated_task   # ✅
+    return updated_task   
 
 
 
