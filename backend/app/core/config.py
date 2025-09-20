@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     POSTGRES_USER: str = "postgres"
     POSTGRES_PASSWORD: str = "postgres"
     POSTGRES_DB: str = "taskdb"
-    POSTGRES_HOST: str = "db"
+    POSTGRES_HOST: str = "localhost"
     POSTGRES_PORT: int = 5432
     SECRET_KEY: str = "change_this_to_a_super_secret"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  

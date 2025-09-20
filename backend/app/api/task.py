@@ -33,6 +33,7 @@ def get_user_task(task_id: int, db: Session = Depends(get_db), current_user: Use
 @router.put("/{task_id}", response_model=TaskResponse, dependencies=[Security(bearer_scheme)])
 def update_user_task(task_id: int, task_in: TaskUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     task = get_task(db, task_id=task_id)
+    print(task)
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
     return update_task(db=db, db_obj=task, obj_in=task_in)

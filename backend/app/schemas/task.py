@@ -2,6 +2,7 @@ from typing import Optional
 from datetime import datetime
 from pydantic import BaseModel
 from enum import Enum
+from app.schemas.user import UserResponse
 
 
 class TaskStatus(str, Enum):
@@ -35,7 +36,7 @@ class TaskResponse(TaskBase):
     created_by: int
     created_at: datetime
     updated_at: datetime
-    assignee: Optional[dict] = None
+    assigned_to: Optional[int] = None
 
     class Config:
         orm_mode = True
