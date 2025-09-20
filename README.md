@@ -16,7 +16,7 @@ This document provides instructions for setting up and running the backend of th
 
 1.  **Clone the repository (if you haven't already):**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/Prashu2024/task-management
     cd task-manger
     ```
 
