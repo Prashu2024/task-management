@@ -20,8 +20,14 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
+# if not settings.DATABASE_URL:
+#     settings.DATABASE_URL = (
+#         f"postgresql+psycopg2://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@"
+#         f"{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}/{settings.POSTGRES_DB}"
+#     )
+
 if not settings.DATABASE_URL:
     settings.DATABASE_URL = (
-        f"postgresql+psycopg2://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@"
+        f"postgresql+asyncpg://{settings.POSTGRES_USER}:{settings.POSTGRES_PASSWORD}@"
         f"{settings.POSTGRES_HOST}:{settings.POSTGRES_PORT}/{settings.POSTGRES_DB}"
     )

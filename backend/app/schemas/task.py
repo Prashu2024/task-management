@@ -37,6 +37,8 @@ class TaskResponse(TaskBase):
     created_at: datetime
     updated_at: datetime
     assigned_to: Optional[int] = None
+    # assignee: Optional[UserResponse] = None
+    # creator: Optional[UserResponse] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
